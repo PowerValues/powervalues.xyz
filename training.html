@@ -23,7 +23,7 @@
             </div>
             <div class="header-actions">
                 <nav class="nav">
-                    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
                         <span class="menu-icon">
                             <span></span>
                             <span></span>
@@ -50,10 +50,12 @@
 
         <section class="hero">
             <div class="container hero-container-new">
+                <div class="value-certificate-wrapper">
+                    <img id="certificate-image" src="images/loyaltycert.svg" alt="Your Power Value Certificate" class="certificate-image">
+                    <span class="certificate-badge">This is your compass.</span>
+                </div>
                 <h1 id="hero-headline">Your #1 Power Value is… [VALUE]</h1>
                 <p class="hero-body" id="hero-subhead">This is the spark that, when honored, unlocks your fullest potential.</p>
-                
-
                 
                 <div>
                     <p>Your full hierarchy of 10 Power Values has been sent to your inbox. Inside, you’ll see what each value means for your choices, your relationships, and your future direction. (If it’s not there yet, check Promotions or Spam.)</p>
@@ -360,13 +362,10 @@
         const certificateImage = document.getElementById('certificate-image');
         if (certificateImage) {
             const sanitizedValue = value1.toLowerCase().replace(/[^a-z0-9]/gi, '');
-            // FIX: Standardized path to lowercase 'images/'
-            certificateImage.src = `images/certificates/${sanitizedValue}.png`;
-            certificateImage.alt = `Your #1 Power Value is ${value1}`;
-            // Fallback image
+
             certificateImage.onerror = function() {
                 // FIX: Standardized path to lowercase 'images/'
-                this.src='images/Green Gold Elegant Luxury Certificate of Appreciation.png';
+                this.src='images/certificates/default.png';
                 this.alt='Power Value Certificate';
             };
         }
