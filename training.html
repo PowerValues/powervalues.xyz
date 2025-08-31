@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Power Values Training Series | By Jonathan M. Keim</title>
     
-    <link rel="icon" type="image/png" href="Images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,18 +18,18 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="#" class="logo-link">
-                    <img src="Images/logo.svg" alt="Power Values" class="logo-image">
+                    <img src="images/logo.svg" alt="Power Values" class="logo-image">
                 </a>
             </div>
             <div class="header-actions">
                 <nav class="nav">
-                    <div class="menu-toggle" id="menu-toggle">
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
                         <span class="menu-icon">
                             <span></span>
                             <span></span>
                             <span></span>
                         </span>
-                    </div>
+                    </button>
                     <ul class="nav-menu" id="nav-menu">
                         <li><a href="#" class="nav-link">Home</a></li>
                         <li><a href="#" class="nav-link">Call</a></li>
@@ -53,10 +53,7 @@
                 <h1 id="hero-headline">Your #1 Power Value is… [VALUE]</h1>
                 <p class="hero-body" id="hero-subhead">This is the spark that, when honored, unlocks your fullest potential.</p>
                 
-                <div class="value-certificate-wrapper">
-                    <img src="Images/loyaltycert.svg" id="certificate-image" alt="Your #1 Power Value Certificate">
-                    <div class="certificate-badge">“This is your compass.”</div>
-                </div>
+
                 
                 <div>
                     <p>Your full hierarchy of 10 Power Values has been sent to your inbox. Inside, you’ll see what each value means for your choices, your relationships, and your future direction. (If it’s not there yet, check Promotions or Spam.)</p>
@@ -89,17 +86,6 @@
             </div>
         </section>
         
-        <style>
-            .experience-outcomes-intro {
-                text-align: center;
-            }
-            @media (max-width: 768px) {
-            .benefits-grid {
-                display: flex;
-                flex-direction: column;
-            }
-            }
-        </style>
         <section class="experience-outcomes">
             <div class="container">
             <div class="section-header animate-on-scroll">
@@ -131,19 +117,6 @@
         </section>
 
         <section class="whats-inside">
-            <style>
-            .whats-inside-intro {
-                text-align: center;
-                max-width: 720px;
-                margin: 0 auto 2rem auto;
-            }
-            @media (max-width: 768px) {
-                .feature-grid-balanced {
-                display: flex;
-                flex-direction: column;
-                }
-            }
-            </style>
             <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2>The system that installs alignment — for life.</h2>
@@ -193,23 +166,8 @@
                 <p class="section-cta animate-on-scroll">This isn’t another burst of inspiration. It’s a practice that makes alignment your default setting.</p>
             </div>
         </section>
-
+        
         <section class="pricing" id="pricing">
-            <style>
-            .pricing .button {
-                transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            }
-            .pricing .button:hover {
-                background-color: #4a90e2; /* Example hover color */
-                transform: translateY(-3px);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            }
-            .pricing .button:active {
-                background-color: #357abd; /* Example active/click color */
-                transform: translateY(-1px);
-                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            }
-            </style>
             <div class="container">
             <div class="section-header animate-on-scroll">
             <h2>Your values are the foundation. Now it’s time to build the house.</h2>
@@ -357,22 +315,22 @@
         <div class="container footer-container">
             <div class="footer-social">
                 <a href="#" class="social-icon-link footer-icon" aria-label="Twitter">
-                    <img src="Images/icons/twitter.svg" alt="Twitter">
+                    <img src="images/icons/twitter.svg" alt="Twitter">
                 </a>
                 <a href="#" class="social-icon-link footer-icon" aria-label="Facebook">
-                    <img src="Images/icons/facebook.svg" alt="Facebook">
+                    <img src="images/icons/facebook.svg" alt="Facebook">
                 </a>
                 <a href="#" class="social-icon-link footer-icon" aria-label="LinkedIn">
-                    <img src="Images/icons/Linkedin.svg" alt="LinkedIn">
+                    <img src="images/icons/Linkedin.svg" alt="LinkedIn">
                 </a>
                 <a href="#" class="social-icon-link footer-icon" aria-label="Instagram">
-                    <img src="Images/icons/instagram.svg" alt="Instagram">
+                    <img src="images/icons/instagram.svg" alt="Instagram">
                 </a>
                 <a href="#" class="social-icon-link footer-icon" aria-label="TikTok">
-                    <img src="Images/icons/tiktok.svg" alt="TikTok">
+                    <img src="images/icons/tiktok.svg" alt="TikTok">
                 </a>
                 <a href="#" class="social-icon-link footer-icon" aria-label="YouTube">
-                    <img src="Images/icons/youtube.svg" alt="YouTube">
+                    <img src="images/icons/youtube.svg" alt="YouTube">
                 </a>
             </div>
             <p class="footer-copy">&copy; 2025 Jonathan M. Keim. All Rights Reserved. | Power Values</p>
@@ -402,10 +360,12 @@
         const certificateImage = document.getElementById('certificate-image');
         if (certificateImage) {
             const sanitizedValue = value1.toLowerCase().replace(/[^a-z0-9]/gi, '');
+            // FIX: Standardized path to lowercase 'images/'
             certificateImage.src = `images/certificates/${sanitizedValue}.png`;
             certificateImage.alt = `Your #1 Power Value is ${value1}`;
             // Fallback image
             certificateImage.onerror = function() {
+                // FIX: Standardized path to lowercase 'images/'
                 this.src='images/Green Gold Elegant Luxury Certificate of Appreciation.png';
                 this.alt='Power Value Certificate';
             };

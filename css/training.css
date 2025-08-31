@@ -13,6 +13,7 @@
 12. STYLES FOR REDESIGNED GAP/PROBLEM SECTION
 13. STYLES FOR PROMISE/BENEFITS CARD SECTION
 14. STYLES FOR "WHAT'S INSIDE" SECTION
+15. MOVED INLINE STYLES
 --------------------------- */
 
 /* 1. BRAND GUIDE & GLOBAL STYLES */
@@ -83,6 +84,11 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.2rem); }
 .logo-image { height: 40px; }
 .nav { position: relative; }
 .menu-toggle { cursor: pointer; z-index: 1001; position: relative; padding: 0.5rem; }
+/* FIX: Added reset styles for the menu-toggle button */
+button.menu-toggle {
+    background: none;
+    border: none;
+}
 .menu-icon { display: block; width: 30px; height: 22px; position: relative; }
 .menu-icon span { display: block; position: absolute; height: 3px; width: 100%; background: var(--primary-color); border-radius: 3px; left: 0; transition: all 0.25s ease-in-out; }
 .menu-icon span:nth-child(1) { top: 0px; }
@@ -338,7 +344,6 @@ footer {
     .guarantee-cards {
         grid-template-columns: 1fr;
     }
-    /* === THIS IS THE REVISED FIX === */
     .benefits-grid {
         grid-template-columns: 1fr; /* This ensures the benefits cards stack on tablets and below */
     }
@@ -348,7 +353,6 @@ footer {
     .hero { padding: 2rem 0; margin-top: 70px; }
     .container { width: 95%; }
     section { padding: 3rem 0; }
-    /* The benefits-grid is already handled by the 992px rule, but we keep this for other elements */
     .feature-grid, .final-cta-buttons, .feature-grid-balanced { grid-template-columns: 1fr; }
     .tiles { flex-direction: column; }
     .tile { flex-basis: auto; }
@@ -358,10 +362,7 @@ footer {
     .confidence-section .confidence-cta-wrapper p {
         font-size: 1.1rem;
     }
-    /* ADDED: Ensure benefits grid stacks on mobile */
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
+    /* FIX: Removed the redundant .benefits-grid rule from here. It is handled by the 992px rule. */
 }
 
 /* 11. MOBILE STICKY CTA */
@@ -491,4 +492,38 @@ footer {
 .tile p {
     font-size: 0.95rem;
     line-height: 1.6;
+}
+
+/* 15. MOVED INLINE STYLES */
+.experience-outcomes-intro {
+    text-align: center;
+}
+.whats-inside-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2rem auto;
+}
+.pricing .button {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.pricing .button:hover {
+    background-color: #4a90e2; /* Example hover color */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.pricing .button:active {
+    background-color: #357abd; /* Example active/click color */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .feature-grid-balanced {
+        display: flex;
+        flex-direction: column;
+    }
 }
