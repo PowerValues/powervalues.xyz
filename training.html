@@ -359,17 +359,6 @@
              heroHeadline.textContent = `Your #1 Power Value is… ${value1}`;
         }
        
-        const certificateImage = document.getElementById('certificate-image');
-        if (certificateImage) {
-            const sanitizedValue = value1.toLowerCase().replace(/[^a-z0-9]/gi, '');
-
-            certificateImage.onerror = function() {
-                // FIX: Standardized path to lowercase 'images/'
-                this.src='images/certificates/default.png';
-                this.alt='Power Value Certificate';
-            };
-        }
-
         // --- 2. INITIALIZE GENERAL PAGE INTERACTIONS ---
         
         // Mobile Navigation
